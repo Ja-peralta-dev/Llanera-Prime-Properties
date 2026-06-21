@@ -1,38 +1,109 @@
-/* Container para sa lahat ng floating buttons */
-.floating-contact-menu {
+/* ============================================
+   FLOATING BUTTONIZER
+   ============================================ */
+.float-btn-group {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 28px;
+  right: 28px;
+  z-index: 500;
   display: flex;
   flex-direction: column;
-  gap: 12px; /* Pagitan ng bawat button */
-  z-index: 9999; /* Siguraduhin na laging nasa ibabaw */
+  align-items: flex-end;
+  gap: 12px;
+}
+.float-tooltip {
+  background: var(--navy-card);
+  border: 1px solid var(--navy-border);
+  color: var(--gold-light);
+  font-family: var(--font-head);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 100px;
+  white-space: nowrap;
+  animation: tooltipPop 0.4s ease both, tooltipFade 3s 2s ease forwards;
+  pointer-events: none;
+}
+@keyframes tooltipPop {
+  from { opacity: 0; transform: translateY(6px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes tooltipFade {
+  to { opacity: 0; }
 }
 
-/* General style para sa bawat bilog na button */
-.fab {
-  width: 55px;
-  height: 55px;
+/* Individual float buttons */
+.float-btn {
+  width: 50px; height: 50px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff; /* Kulay ng icon sa loob */
-  text-decoration: none;
-  font-size: 24px;
-  /* Gold/Metallic Gradient Effect */
-  background: linear-gradient(135deg, #d4af37, #aa8811);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease; /* Smooth animation */
+  transition: all 0.3s var(--ease);
+  position: relative;
+  /* hidden initially, shown when group is open */
+  opacity: 0;
+  transform: translateY(10px) scale(0.8);
+  pointer-events: none;
 }
+.float-btn-group.open .float-btn {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+.float-btn-group.open .fb-btn { transition-delay: 0.05s; }
+.float-btn-group.open .wa-btn { transition-delay: 0.1s; }
+.float-btn-group.open .call-btn { transition-delay: 0.15s; }
 
-/* Hover effect para mag-glow pag tinapatan */
-.fab:hover {
-  transform: scale(1.1);
-}
+.float-btn:hover { transform: scale(1.12) !important; }
 
-/* Walang special background color na kailangan sa bawat isa 
-   dahil lahat sila ay naka-gold gradient na para elegant */
-.messenger, .whatsapp, .call, .email {
-  background: linear-gradient(135deg, #d4af37, #aa8811);
+.fb-btn  { background: #0084FF; color: white; box-shadow: 0 4px 20px rgba(0,132,255,0.4); }
+.wa-btn  { background: #25D366; color: white; box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+.call-btn{ background: var(--cta-grad); color: var(--navy); box-shadow: 0 4px 20px rgba(201,146,42,0.4); }
+
+/* Tooltip labels */
+.float-label {
+  position: absolute;
+  right: 60px;
+  background: var(--navy-card);
+  border: 1px solid var(--navy-border);
+  color: var(--white);
+  font-family: var(--font-head);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 100px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
 }
+.float-btn:hover .float-label { opacity: 1; }
+
+/* Main toggle button */
+.float-main-btn {
+  width: 58px; height: 58px;
+  border-radius: 50%;
+  background: var(--cta-grad);
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 28px rgba(201,146,42,0.5);
+  transition: all 0.3s var(--ease);
+  position: relative;
+  z-index: 1;
+  animation: mainBtnPulse 3s ease infinite;
+}
+.float-main-btn:hover {
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: 0 10px 40px rgba(201,146,42,0.65);
+}
+@keyframes mainBtnPulse {
+  0%, 100% { box-shadow: 0 6px 28px rgba(201,146,42,0.5); }
+  50%       { box-shadow: 0 6px 28px rgba(201,146,42,0.5), 0 0 0 10px rgba(201,146,42,0.1); }
+}
+.float-main-btn .icon-chat { display: block; }
+.float-main-btn .icon-close { display: none; }
+.float-btn-group.open .float-main-btn .icon-chat { display: none; }
+.float-btn-group.open .float-main-btn .icon-close { display: block; }
