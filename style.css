@@ -1,28 +1,38 @@
+/* Container para sa lahat ng floating buttons */
 .floating-contact-menu {
   position: fixed;
   bottom: 20px;
   right: 20px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  z-index: 1000;
+  gap: 12px; /* Pagitan ng bawat button */
+  z-index: 9999; /* Siguraduhin na laging nasa ibabaw */
 }
 
+/* General style para sa bawat bilog na button */
 .fab {
-  width: 50px;
-  height: 50px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
-  background: #25d366; /* Example color */
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: #fff; /* Kulay ng icon sa loob */
   text-decoration: none;
   font-size: 24px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  /* Gold/Metallic Gradient Effect */
+  background: linear-gradient(135deg, #d4af37, #aa8811);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease; /* Smooth animation */
 }
 
-.messenger { background: #0084ff; }
-.whatsapp { background: #25d366; }
-.call { background: #ff4757; }
-.email { background: #57606f; }
+/* Hover effect para mag-glow pag tinapatan */
+.fab:hover {
+  transform: scale(1.1);
+}
+
+/* Walang special background color na kailangan sa bawat isa 
+   dahil lahat sila ay naka-gold gradient na para elegant */
+.messenger, .whatsapp, .call, .email {
+  background: linear-gradient(135deg, #d4af37, #aa8811);
+}
