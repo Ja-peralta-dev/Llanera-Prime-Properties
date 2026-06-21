@@ -107,3 +107,17 @@
 .float-main-btn .icon-close { display: none; }
 .float-btn-group.open .float-main-btn .icon-chat { display: none; }
 .float-btn-group.open .float-main-btn .icon-close { display: block; }
+
+/* Ilipat ang floating menu nang mas mataas para hindi matakpan */
+.floating-contact-menu, .float-btn-group {
+  bottom: 90px; /* Mas mataas kaysa sa back-top button */
+  right: 20px;
+  z-index: 9999;
+}
+
+/* Siguraduhin na ang back-top ay nasa baba lang */
+#back-top {
+  bottom: 20px;
+  right: 20px;
+  z-index: 9998;
+}
