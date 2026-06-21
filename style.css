@@ -1,0 +1,28 @@
+.floating-contact-menu {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.fab {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #25d366; /* Example color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.messenger { background: #0084ff; }
+.whatsapp { background: #25d366; }
+.call { background: #ff4757; }
+.email { background: #57606f; }
