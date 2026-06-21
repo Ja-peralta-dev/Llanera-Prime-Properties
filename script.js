@@ -1,4 +1,4 @@
-/* ---- Floating Buttonizer ---- */
+/* Floating Buttonizer Logic */
 const floatMainBtn = document.getElementById('floatMainBtn');
 const floatBtns = document.getElementById('floatBtns');
 const floatTooltip = document.getElementById('floatTooltip');
@@ -17,4 +17,3 @@ if (floatMainBtn && floatBtns) {
     }
   });
 }
-
