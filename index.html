@@ -20,7 +20,7 @@
   <meta property="og:title" content="Llanera Prime Properties | Premium Real Estate Investments" />
   <meta property="og:description" content="High-potential real estate investments in Llanera — event venues and agricultural land with long-term growth potential." />
   <meta property="og:image" content="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80" />
-  <meta property="og:url" content="https://ja-peralta.com/llanera-prime" />
+  <meta property="og:url" content="https://ja-peralta-dev.github.io/Llanera-Prime-Properties/" />
   <meta property="og:site_name" content="Llanera Prime Properties" />
 
   <!-- Twitter Card -->
@@ -36,8 +36,8 @@
     "@type": "RealEstateAgent",
     "name": "Llanera Prime Properties",
     "description": "Premium real estate investment opportunities in Llanera, Nueva Ecija, Philippines.",
-    "url": "https://ja-peralta.com/llanera-prime",
-    "telephone": "+63-900-000-0000",
+    "url": "https://ja-peralta-dev.github.io/Llanera-Prime-Properties/",
+    "telephone": "+63-951-925-9949",
     "email": "inquiry@llaneraprimeproperties.com",
     "address": {
       "@type": "PostalAddress",
@@ -70,13 +70,12 @@
     }
   }
   </script>
-  
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="style.css">
   <!-- =============================================
        INLINE CSS — DESIGN SYSTEM
   ============================================= -->
@@ -1189,6 +1188,174 @@
     #back-top:hover { background: rgba(201,168,76,0.1); border-color: var(--gold); }
 
     /* =============================================
+         FLOATING BUTTONIZER
+    ============================================= */
+    #float-btns {
+      position: fixed;
+      right: 20px;
+      bottom: 90px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+      z-index: 950;
+    }
+    .float-btn {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      display: grid; place-items: center;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      border: none;
+      font-size: 1.35rem;
+      position: relative;
+    }
+    .float-btn:hover { transform: scale(1.12); box-shadow: 0 6px 24px rgba(0,0,0,0.5); }
+    .float-btn-messenger { background: #0084FF; color: #fff; }
+    .float-btn-whatsapp  { background: #25D366; color: #fff; }
+    .float-btn-phone     { background: var(--gold); color: var(--obsidian); }
+    /* Tooltip labels */
+    .float-btn::before {
+      content: attr(data-label);
+      position: absolute;
+      right: 62px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text-prime);
+      font-family: var(--ff-body);
+      font-size: 0.72rem;
+      font-weight: 500;
+      white-space: nowrap;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      letter-spacing: 0.04em;
+    }
+    .float-btn:hover::before { opacity: 1; }
+    /* Toggle button */
+    #float-toggle {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      display: grid; place-items: center;
+      cursor: pointer;
+      color: var(--gold);
+      font-size: 1.4rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+      transition: var(--transition);
+      z-index: 951;
+    }
+    #float-toggle:hover { background: rgba(201,168,76,0.1); border-color: var(--gold); }
+    .float-group {
+      display: flex; flex-direction: column; align-items: flex-end; gap: 10px;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .float-group.hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+    }
+
+    /* =============================================
+         INVESTMENT OUTLOOK (replaces testimonials)
+    ============================================= */
+    #outlook { background: var(--deep); }
+    .outlook-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .outlook-card {
+      padding: 40px 32px;
+      background: var(--card);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .outlook-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-dim), transparent);
+    }
+    .outlook-card::after {
+      content: '';
+      position: absolute;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+      border-radius: 50%;
+      bottom: -60px; right: -60px;
+      pointer-events: none;
+    }
+    .outlook-card:hover { transform: translateY(-4px); border-color: var(--border); box-shadow: var(--shadow-gold); }
+    .outlook-icon-wrap {
+      width: 64px; height: 64px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      display: grid; place-items: center;
+      margin-bottom: 24px;
+      background: rgba(201,168,76,0.05);
+      position: relative; z-index: 1;
+    }
+    .outlook-icon {
+      font-size: 1.7rem;
+    }
+    .outlook-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 10px;
+      position: relative; z-index: 1;
+    }
+    .outlook-title {
+      font-family: var(--ff-display);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--text-prime);
+      line-height: 1.2;
+      margin-bottom: 16px;
+      position: relative; z-index: 1;
+    }
+    .outlook-title em { font-style: italic; color: var(--gold-light); }
+    .outlook-desc {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      position: relative; z-index: 1;
+    }
+    .outlook-metric {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-soft);
+      display: flex; align-items: baseline; gap: 8px;
+      position: relative; z-index: 1;
+    }
+    .outlook-metric-num {
+      font-family: var(--ff-display);
+      font-size: 2rem;
+      color: var(--gold-light);
+      font-weight: 600;
+      line-height: 1;
+    }
+    .outlook-metric-label {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      letter-spacing: 0.08em;
+    }
+    @media (max-width: 900px) {
+      .outlook-grid { grid-template-columns: 1fr; }
+    }
+
+    /* =============================================
          UTILITIES
     ============================================= */
     .mt-1 { margin-top: 8px; }
@@ -1389,8 +1556,8 @@
             <div class="prop-img-wrap">
               <img
                 class="prop-img"
-                src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800&q=80"
-                alt="La Casa de Victoria Event Place — elegant venue exterior"
+                src="llanera-prime-properties-1.webp"
+                alt="La Casa de Victoria Event Place — elegant venue exterior in Llanera, Nueva Ecija"
                 width="800" height="280"
                 loading="lazy"
               />
@@ -1432,8 +1599,8 @@
             <div class="prop-img-wrap">
               <img
                 class="prop-img"
-                src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80"
-                alt="11 Hectare Rice Farm — expansive agricultural land in Llanera"
+                src="llanera-prime-properties-2.webp"
+                alt="11 Hectares Rice Farm — Premium Agricultural Investment in Llanera, Nueva Ecija"
                 width="800" height="280"
                 loading="lazy"
               />
@@ -1557,16 +1724,16 @@
 
             <img
               class="why-img-main"
-              src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80"
-              alt="Llanera, Nueva Ecija landscape — fertile fields and open land"
+              src="llanera-prime-properties-8.webp"
+              alt="Llanera, Nueva Ecija — Green Rice Field View"
               width="600" height="440"
               loading="lazy"
             />
 
             <img
               class="why-img-accent"
-              src="https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?w=400&q=80"
-              alt="Aerial view of Llanera agricultural land"
+              src="llanera-prime-properties-9.webp"
+              alt="Paddy field farming landscape in Llanera"
               width="200" height="160"
               loading="lazy"
             />
@@ -1640,27 +1807,27 @@
         <div class="gallery-grid reveal" role="list" aria-label="Property photo gallery">
 
           <div class="gallery-item" role="listitem">
-            <img class="gallery-img" src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800&q=80" alt="La Casa de Victoria venue main hall" loading="lazy" />
+            <img class="gallery-img" src="llanera-prime-properties-4.webp" alt="La Casa de Victoria — Nighttime Dining Setup" loading="lazy" />
             <div class="gallery-overlay" aria-hidden="true"><div class="gallery-plus">+</div></div>
           </div>
 
           <div class="gallery-item" role="listitem">
-            <img class="gallery-img" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80" alt="11 Hectare Rice Farm aerial view" loading="lazy" />
+            <img class="gallery-img" src="llanera-prime-properties-3.webp" alt="Outdoor Event — People at La Casa de Victoria" loading="lazy" />
             <div class="gallery-overlay" aria-hidden="true"><div class="gallery-plus">+</div></div>
           </div>
 
           <div class="gallery-item" role="listitem">
-            <img class="gallery-img" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=600&q=80" alt="Llanera agricultural landscape at golden hour" loading="lazy" />
+            <img class="gallery-img" src="llanera-prime-properties-10.webp" alt="Rice Farm — Detailed Field View in Llanera" loading="lazy" />
             <div class="gallery-overlay" aria-hidden="true"><div class="gallery-plus">+</div></div>
           </div>
 
           <div class="gallery-item" role="listitem">
-            <img class="gallery-img" src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=600&q=80" alt="Event venue ceremony setup" loading="lazy" />
+            <img class="gallery-img" src="llanera-prime-properties-5.webp" alt="La Casa de Victoria — Garden Seating Area" loading="lazy" />
             <div class="gallery-overlay" aria-hidden="true"><div class="gallery-plus">+</div></div>
           </div>
 
           <div class="gallery-item" role="listitem">
-            <img class="gallery-img" src="https://images.unsplash.com/photo-1601918774946-25832a4be0d6?w=600&q=80" alt="Sunrise over Nueva Ecija farmland" loading="lazy" />
+            <img class="gallery-img" src="llanera-prime-properties-7.webp" alt="La Casa de Victoria — Indoor Banquet Hall" loading="lazy" />
             <div class="gallery-overlay" aria-hidden="true"><div class="gallery-plus">+</div></div>
           </div>
 
@@ -1714,59 +1881,67 @@
     </section>
 
     <!-- =============================================
-         TESTIMONIAL SECTION
+         LLANERA INVESTMENT OUTLOOK SECTION
     ============================================= -->
-    <section id="testimonials" class="section section--deep" aria-labelledby="testi-heading">
+    <section id="outlook" class="section section--deep" aria-labelledby="outlook-heading">
       <div class="container">
 
         <div class="text-center mb-2 reveal">
-          <span class="eyebrow">Client Stories</span>
+          <span class="eyebrow">Market Intelligence</span>
           <span class="gold-line" aria-hidden="true"></span>
-          <h2 class="section-title" id="testi-heading">What Investors <em>Say</em></h2>
-          <p class="section-sub">Real experiences from property buyers and investors who have worked with Llanera Prime Properties.</p>
+          <h2 class="section-title" id="outlook-heading">Llanera <em>Investment Outlook</em></h2>
+          <p class="section-sub">
+            Why smart investors are turning their eyes toward Llanera, Nueva Ecija — a market defined by long-term value, stability, and strategic positioning.
+          </p>
         </div>
 
-        <div class="testi-grid" role="list">
+        <div class="outlook-grid" role="list">
 
-          <article class="testi-card reveal" role="listitem" aria-labelledby="testi1-author">
-            <div class="testi-quote" aria-hidden="true">"</div>
-            <p class="testi-text">The rice farm investment exceeded our expectations. The owner was completely transparent — clean documents, fair pricing. We're already seeing appreciation just two years in. Highly recommended.</p>
-            <div class="testi-divider" aria-hidden="true"></div>
-            <div class="testi-author">
-              <img class="testi-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80" alt="Portrait of Ricardo Santos" width="40" height="40" loading="lazy" />
-              <div>
-                <div class="testi-name" id="testi1-author">Ricardo Santos</div>
-                <div class="testi-role">Land Investor, Cabanatuan</div>
-                <div class="testi-stars" aria-label="5 stars">★★★★★</div>
-              </div>
+          <!-- Card 1 — Long-Term Growth -->
+          <article class="outlook-card reveal" role="listitem" aria-labelledby="outlook1-title">
+            <div class="outlook-icon-wrap" aria-hidden="true">
+              <span class="outlook-icon">📈</span>
+            </div>
+            <div class="outlook-label">Growth Trajectory</div>
+            <h3 class="outlook-title" id="outlook1-title">Long-Term<br><em>Growth</em></h3>
+            <p class="outlook-desc">
+              Llanera sits within one of Central Luzon's fastest-developing corridors. Sustained infrastructure investment, rising population density, and improved road access via NLEX–TPLEX are converging forces that have historically driven compound property appreciation in similar Philippine municipalities. Early entry positions investors well ahead of peak valuation cycles.
+            </p>
+            <div class="outlook-metric">
+              <span class="outlook-metric-num">10–20yr</span>
+              <span class="outlook-metric-label">Wealth-building horizon</span>
             </div>
           </article>
 
-          <article class="testi-card reveal reveal-delay-2" role="listitem" aria-labelledby="testi2-author">
-            <div class="testi-quote" aria-hidden="true">"</div>
-            <p class="testi-text">La Casa de Victoria is exactly what we were looking for — a venue business in a strategic location. The seller was responsive and the process was smooth from inquiry to turnover.</p>
-            <div class="testi-divider" aria-hidden="true"></div>
-            <div class="testi-author">
-              <img class="testi-avatar" src="https://images.unsplash.com/photo-1494790108755-2616b2e5abf9?w=80&q=80" alt="Portrait of Maria Reyes" width="40" height="40" loading="lazy" />
-              <div>
-                <div class="testi-name" id="testi2-author">Maria Reyes</div>
-                <div class="testi-role">Event Business Owner, Nueva Ecija</div>
-                <div class="testi-stars" aria-label="5 stars">★★★★★</div>
-              </div>
+          <!-- Card 2 — Asset Security -->
+          <article class="outlook-card reveal reveal-delay-2" role="listitem" aria-labelledby="outlook2-title">
+            <div class="outlook-icon-wrap" aria-hidden="true">
+              <span class="outlook-icon">🔒</span>
+            </div>
+            <div class="outlook-label">Capital Protection</div>
+            <h3 class="outlook-title" id="outlook2-title">Asset<br><em>Security</em></h3>
+            <p class="outlook-desc">
+              Land and income-generating properties remain among the most crisis-resilient asset classes in the Philippine investment landscape. Unlike equities or digital assets, titled real estate carries intrinsic value anchored in physical utility — productive farmland generates income through harvests while an event venue captures cash flow from bookings, creating a dual-layer security buffer for investors.
+            </p>
+            <div class="outlook-metric">
+              <span class="outlook-metric-num">100%</span>
+              <span class="outlook-metric-label">Verified, clean TCT titles</span>
             </div>
           </article>
 
-          <article class="testi-card reveal reveal-delay-4" role="listitem" aria-labelledby="testi3-author">
-            <div class="testi-quote" aria-hidden="true">"</div>
-            <p class="testi-text">I was hesitant to invest in provincial land, but after visiting and seeing the documents, I was convinced. Llanera is growing fast and this land will be worth twice its value in 5 years.</p>
-            <div class="testi-divider" aria-hidden="true"></div>
-            <div class="testi-author">
-              <img class="testi-avatar" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&q=80" alt="Portrait of Jonathan Cruz" width="40" height="40" loading="lazy" />
-              <div>
-                <div class="testi-name" id="testi3-author">Jonathan Cruz</div>
-                <div class="testi-role">OFW Investor, Manila</div>
-                <div class="testi-stars" aria-label="5 stars">★★★★★</div>
-              </div>
+          <!-- Card 3 — Strategic Value -->
+          <article class="outlook-card reveal reveal-delay-4" role="listitem" aria-labelledby="outlook3-title">
+            <div class="outlook-icon-wrap" aria-hidden="true">
+              <span class="outlook-icon">🎯</span>
+            </div>
+            <div class="outlook-label">Location Advantage</div>
+            <h3 class="outlook-title" id="outlook3-title">Strategic<br><em>Value</em></h3>
+            <p class="outlook-desc">
+              Llanera's position within Nueva Ecija — the Philippines' rice granary province — endows agricultural land with perpetual productive relevance. Meanwhile, the municipality's growing resident base and emerging agri-tourism trend create expanding demand for event and hospitality venues. These properties represent the convergence of agricultural heritage and commercial opportunity in a single, accessible location.
+            </p>
+            <div class="outlook-metric">
+              <span class="outlook-metric-num">2–3 hrs</span>
+              <span class="outlook-metric-label">From Metro Manila via NLEX–TPLEX</span>
             </div>
           </article>
 
@@ -1872,7 +2047,7 @@
 
           <div class="cta-btns">
             <a
-              href="https://m.me/llaneraprimeproperties"
+              href="https://m.me/JaPeraltacom/"
               class="btn btn-gold"
               target="_blank"
               rel="noopener noreferrer"
@@ -1881,7 +2056,7 @@
               <span>💬</span> Messenger Inquiry
             </a>
             <a
-              href="tel:+639000000000"
+              href="tel:+639519259949"
               class="btn btn-outline"
               aria-label="Call us now"
             >
@@ -1914,9 +2089,9 @@
             <div class="contact-item">
               <div class="contact-icon" aria-hidden="true">📘</div>
               <div>
-                <div class="contact-label">Facebook</div>
-                <a href="https://facebook.com/llaneraprimeproperties" class="contact-value" target="_blank" rel="noopener noreferrer" aria-label="Visit our Facebook page">
-                  fb.com/llaneraprimeproperties
+                <div class="contact-label">Facebook / Messenger</div>
+                <a href="https://m.me/JaPeraltacom/" class="contact-value" target="_blank" rel="noopener noreferrer" aria-label="Message us on Facebook Messenger">
+                  m.me/JaPeraltacom
                 </a>
               </div>
             </div>
@@ -1924,19 +2099,19 @@
             <div class="contact-item">
               <div class="contact-icon" aria-hidden="true">📞</div>
               <div>
-                <div class="contact-label">Phone / Viber / WhatsApp</div>
-                <a href="tel:+639000000000" class="contact-value" aria-label="Call us at this number">
-                  +63 900 000 0000
+                <div class="contact-label">Phone / Viber</div>
+                <a href="tel:+639519259949" class="contact-value" aria-label="Call us at this number">
+                  0951 925 9949
                 </a>
               </div>
             </div>
 
             <div class="contact-item">
-              <div class="contact-icon" aria-hidden="true">✉️</div>
+              <div class="contact-icon" aria-hidden="true">💬</div>
               <div>
-                <div class="contact-label">Email</div>
-                <a href="mailto:inquiry@llaneraprimeproperties.com" class="contact-value" aria-label="Send us an email">
-                  inquiry@llaneraprimeproperties.com
+                <div class="contact-label">WhatsApp</div>
+                <a href="https://wa.me/639519259949" class="contact-value" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+                  0951 925 9949
                 </a>
               </div>
             </div>
@@ -2025,8 +2200,8 @@
             Premium real estate investment opportunities in Llanera, Nueva Ecija. We connect serious investors with verified, high-potential properties — directly from the seller.
           </p>
           <div class="footer-socials" aria-label="Social media links">
-            <a href="https://facebook.com/llaneraprimeproperties" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
-            <a href="https://m.me/llaneraprimeproperties" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Messenger">m</a>
+            <a href="https://m.me/JaPeraltacom/" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Facebook Messenger">💬</a>
+            <a href="https://wa.me/639519259949" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">📱</a>
           </div>
         </div>
 
@@ -2059,16 +2234,16 @@
           <div class="footer-col-title">Contact</div>
           <ul class="footer-links">
             <li>
-              <a href="https://facebook.com/llaneraprimeproperties" target="_blank" rel="noopener noreferrer">
-                📘 Facebook Page
+              <a href="https://m.me/JaPeraltacom/" target="_blank" rel="noopener noreferrer">
+                📘 Facebook / Messenger
               </a>
             </li>
             <li>
-              <a href="tel:+639000000000">📞 +63 900 000 0000</a>
+              <a href="tel:+639519259949">📞 0951 925 9949</a>
             </li>
             <li>
-              <a href="mailto:inquiry@llaneraprimeproperties.com">
-                ✉️ inquiry@llaneraprimeproperties.com
+              <a href="https://wa.me/639519259949" target="_blank" rel="noopener noreferrer">
+                💬 WhatsApp: 0951 925 9949
               </a>
             </li>
             <li style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;">
@@ -2092,26 +2267,66 @@
 
     <!-- Developer Credit -->
     <div class="footer-dev">
-      Website designed &amp; developed by <a href="https://ja-peralta.com" target="_blank" rel="noopener noreferrer">JA Peralta Web Dev &amp; Digital Marketing</a>
+      Website designed &amp; developed by <a href="https://ja-peralta-dev.github.io/WordPress-Designer-Digital-Marketing/" target="_blank" rel="noopener noreferrer">JA Peralta Web Dev &amp; Digital Marketing</a>
     </div>
 
   </footer>
 
-         
-  <!-- Floating Buttonizer Group -->
-<div class="float-btn-group" id="floatBtns">
-  <div class="float-tooltip" id="floatTooltip">Chat with us</div>
-  
-  <a href="https://m.me/JaPeraltacom" target="_blank" class="float-btn fb">💬</a>
-  <a href="https://wa.me/639519259949" target="_blank" class="float-btn wa">🟢</a>
-  <a href="tel:+639519259949" class="float-btn call">📞</a>
-  <a href="mailto:japeralta55555@gmail.com" class="float-btn email">📧</a>
-  
-  <button class="float-main-btn" id="floatMainBtn" aria-label="Contact options">
-    <span>+</span>
-  </button>
-</div>
-  
+  <!-- =============================================
+       FLOATING BUTTONIZER
+  ============================================= -->
+  <div id="float-btns" aria-label="Quick contact buttons">
+
+    <!-- Toggle button -->
+    <button id="float-toggle" aria-label="Toggle quick contact menu" aria-expanded="true">💬</button>
+
+    <!-- Contact buttons group -->
+    <div class="float-group" id="float-group">
+
+      <a
+        class="float-btn float-btn-messenger"
+        href="https://m.me/JaPeraltacom/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Message us on Messenger"
+        data-label="Send a Message"
+      >
+        <!-- Messenger icon SVG -->
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.477 2 2 6.145 2 11.259c0 2.906 1.404 5.502 3.607 7.21V22l3.29-1.813c.88.245 1.813.377 2.773.377 5.523 0 10-4.145 10-9.26C21.67 6.145 17.193 2 12 2zm1.088 12.41l-2.543-2.71-4.965 2.71 5.462-5.802 2.607 2.71 4.9-2.71-5.461 5.802z"/>
+        </svg>
+      </a>
+
+      <a
+        class="float-btn float-btn-whatsapp"
+        href="https://wa.me/639519259949?text=Hello!%20I%20am%20interested%20in%20your%20Llanera%20Prime%20Properties."
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat with us on WhatsApp"
+        data-label="WhatsApp Chat"
+      >
+        <!-- WhatsApp icon SVG -->
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12.004 2.003a9.997 9.997 0 00-8.591 15.114L2 22l4.982-1.387A9.997 9.997 0 1012.004 2.003zm0 18.25a8.246 8.246 0 01-4.204-1.153l-.302-.179-3.13.872.856-3.117-.197-.32A8.253 8.253 0 1112.004 20.25z"/>
+        </svg>
+      </a>
+
+      <a
+        class="float-btn float-btn-phone"
+        href="tel:+639519259949"
+        aria-label="Call us now"
+        data-label="Call: 0951 925 9949"
+      >
+        <!-- Phone icon SVG -->
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+        </svg>
+      </a>
+
+    </div>
+  </div>
+
   <!-- Back to Top -->
   <button id="back-top" aria-label="Back to top">↑</button>
 
@@ -2248,6 +2463,17 @@
         }
       });
     });
+    // ─── Floating Buttonizer toggle ───
+    const floatToggle = document.getElementById('float-toggle');
+    const floatGroup  = document.getElementById('float-group');
+    let floatOpen = true;
+
+    floatToggle.addEventListener('click', () => {
+      floatOpen = !floatOpen;
+      floatGroup.classList.toggle('hidden', !floatOpen);
+      floatToggle.setAttribute('aria-expanded', floatOpen.toString());
+    });
+
   </script>
 
 </body>
