@@ -2633,4 +2633,194 @@
       >
         <!-- WhatsApp icon SVG -->
         <svg width="22" height="22" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.75
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12.004 2.003a9.997 9.997 0 00-8.591 15.114L2 22l4.982-1.387A9.997 9.997 0 1012.004 2.003zm0 18.25a8.246 8.246 0 01-4.204-1.153l-.302-.179-3.13.872.856-3.117-.197-.32A8.253 8.253 0 1112.004 20.25z"/>
+        </svg>
+      </a>
+
+      <a
+        class="float-btn float-btn-phone"
+        href="tel:+639602310150"
+        aria-label="Call us now"
+        data-label="Call: 0960 231 0150"
+      >
+        <!-- Phone icon SVG -->
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+        </svg>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Back to Top -->
+  <button id="back-top" aria-label="Back to top">↑</button>
+
+  <!-- =============================================
+       JAVASCRIPT — INTERACTIONS
+  ============================================= -->
+  <script>
+    // ─── Announcement bar init ───
+    const announceBar  = document.getElementById('announcement-bar');
+    const announceClose = document.getElementById('announce-close');
+    const BAR_H = 42;
+
+    function applyBar(show) {
+      if (show) {
+        document.body.classList.add('has-announce');
+        announceBar.style.display = '';
+      } else {
+        document.body.classList.remove('has-announce');
+        announceBar.style.display = 'none';
+      }
+    }
+
+    // Restore dismiss from session
+    if (sessionStorage.getItem('announceDismissed')) {
+      applyBar(false);
+    } else {
+      applyBar(true);
+    }
+
+    announceClose.addEventListener('click', () => {
+      sessionStorage.setItem('announceDismissed', '1');
+      applyBar(false);
+    });
+
+    // ─── Navbar scroll effect ───
+    const navbar = document.getElementById('navbar');
+    const heroBg = document.getElementById('hero-bg');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+      // Back to top
+      const backTop = document.getElementById('back-top');
+      if (window.scrollY > 400) {
+        backTop.classList.add('show');
+      } else {
+        backTop.classList.remove('show');
+      }
+    }, { passive: true });
+
+    // ─── Hero image load animation ───
+    window.addEventListener('load', () => {
+      if (heroBg) heroBg.classList.add('loaded');
+    });
+
+    // ─── Mobile hamburger ───
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', isOpen.toString());
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // ─── Scroll reveal ───
+    const reveals = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => revealObserver.observe(el));
+
+    // ─── FAQ accordion ───
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // ─── Contact form ───
+    const form = document.getElementById('inquiry-form');
+    const formStatus = document.getElementById('form-status');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('full-name').value.trim();
+      const phone = document.getElementById('phone-num').value.trim();
+      const property = document.getElementById('property-interest').value;
+
+      if (!name || !phone || !property) {
+        formStatus.textContent = '⚠️ Please fill in all required fields.';
+        formStatus.style.color = '#E07070';
+        return;
+      }
+      const submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.innerHTML = '⏳ Sending…';
+      submitBtn.disabled = true;
+
+      setTimeout(() => {
+        formStatus.textContent = '✅ Thank you! Your inquiry has been received. Broker Arce will contact you within 24 hours.';
+        formStatus.style.color = 'var(--gold-light)';
+        form.reset();
+        submitBtn.innerHTML = '<span>📨</span> Send Inquiry';
+        submitBtn.disabled = false;
+      }, 1500);
+    });
+
+    // ─── Back to top ───
+    document.getElementById('back-top').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ─── Footer year ───
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+
+    // ─── Smooth scroll for anchor links ───
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const offset = document.body.classList.contains('has-announce') ? 114 : 72;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // ─── Floating Buttonizer toggle ───
+    const floatToggle = document.getElementById('float-toggle');
+    const floatGroup  = document.getElementById('float-group');
+    let floatOpen = true;
+
+    floatToggle.addEventListener('click', () => {
+      floatOpen = !floatOpen;
+      floatGroup.classList.toggle('hidden', !floatOpen);
+      floatToggle.setAttribute('aria-expanded', floatOpen.toString());
+      floatToggle.style.transform = floatOpen ? 'rotate(0deg)' : 'rotate(45deg)';
+    });
+
+  </script>
+
+</body>
+</html>
