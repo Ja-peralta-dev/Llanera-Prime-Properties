@@ -19,15 +19,19 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Llanera Prime Properties | Premium Real Estate Investments" />
   <meta property="og:description" content="High-potential real estate investments in Llanera — event venues and agricultural land with long-term growth potential." />
-  <meta property="og:image" content="https://raw.githubusercontent.com/ja-peralta-dev/Llanera-Prime-Properties/main/llanera-prime-properties-og-1.png" />
+  <meta property="og:image" content="https://ja-peralta-dev.github.io/Llanera-Prime-Properties/llanera-prime-properties-1.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="La Casa Di Victoria Event Place — Premium Real Estate for Sale in Llanera, Nueva Ecija" />
   <meta property="og:url" content="https://ja-peralta-dev.github.io/Llanera-Prime-Properties/" />
   <meta property="og:site_name" content="Llanera Prime Properties" />
+  <meta property="og:locale" content="en_PH" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Llanera Prime Properties" />
-  <meta name="twitter:description" content="Premium investment properties in Llanera — event venues and agricultural land." />
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&q=80" />
+  <meta name="twitter:title" content="Llanera Prime Properties | Event Venue & Rice Farm for Sale" />
+  <meta name="twitter:description" content="La Casa Di Victoria Event Place & 11 Hectares Rice Farm in Llanera, Nueva Ecija. Verified titles. Direct seller. Schedule a viewing today." />
+  <meta name="twitter:image" content="https://ja-peralta-dev.github.io/Llanera-Prime-Properties/llanera-prime-properties-1.webp" />
 
   <!-- Schema.org RealEstateAgent Markup -->
   <script type="application/ld+json">
@@ -37,7 +41,8 @@
     "name": "Llanera Prime Properties",
     "description": "Premium real estate investment opportunities in Llanera, Nueva Ecija, Philippines.",
     "url": "https://ja-peralta-dev.github.io/Llanera-Prime-Properties/",
-    "telephone": "+63-951-925-9949",
+    "telephone": "+63-960-231-0150",
+    "sameAs": ["https://www.facebook.com/profile.php?id=61581063641456"],
     "email": "inquiry@llaneraprimeproperties.com",
     "address": {
       "@type": "PostalAddress",
@@ -80,6 +85,196 @@
        INLINE CSS — DESIGN SYSTEM
   ============================================= -->
   <style>
+    /* =============================================
+         ANNOUNCEMENT BAR
+    ============================================= */
+    #announcement-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1100;
+      background: linear-gradient(90deg, #0A0A0B 0%, #1a1408 40%, #0A0A0B 100%);
+      border-bottom: 1px solid rgba(201,168,76,0.25);
+      overflow: hidden;
+    }
+    .announce-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 42px;
+      gap: 16px;
+    }
+    .announce-ticker {
+      flex: 1;
+      overflow: hidden;
+      position: relative;
+    }
+    .announce-track {
+      display: flex;
+      gap: 60px;
+      white-space: nowrap;
+      animation: ticker 28s linear infinite;
+    }
+    .announce-track:hover { animation-play-state: paused; }
+    @keyframes ticker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .announce-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .announce-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+    .announce-cta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .announce-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: 100px;
+      transition: var(--transition);
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    .announce-btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dim));
+      color: var(--obsidian);
+    }
+    .announce-btn-primary:hover {
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      transform: scale(1.03);
+    }
+    .announce-btn-ghost {
+      border: 1px solid rgba(201,168,76,0.4);
+      color: var(--gold-light);
+    }
+    .announce-btn-ghost:hover {
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.08);
+    }
+    .announce-close {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.1);
+      display: grid; place-items: center;
+      cursor: pointer;
+      color: var(--text-dim);
+      font-size: 0.75rem;
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+    .announce-close:hover { border-color: var(--gold); color: var(--gold); }
+    /* Shift navbar and body down for announcement bar */
+    body.has-announce #navbar { top: 42px; }
+    body.has-announce .nav-mobile { top: 114px; }
+
+    /* =============================================
+         YOUTUBE VIDEO SECTION
+    ============================================= */
+    #videos { background: var(--deep); }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .video-card {
+      background: var(--card);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .video-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border);
+      box-shadow: var(--shadow-gold);
+    }
+    .video-embed-wrap {
+      position: relative;
+      padding-bottom: 177.78%; /* 9:16 shorts ratio */
+      height: 0;
+      overflow: hidden;
+      background: var(--obsidian);
+      max-height: 420px;
+      padding-bottom: min(177.78%, 420px);
+    }
+    .video-embed-wrap iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: 0;
+    }
+    .video-body { padding: 24px; }
+    .video-type {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .video-title {
+      font-family: var(--ff-display);
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--text-prime);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .video-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .btn-video {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-prime);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: transparent;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+    .btn-video:hover {
+      border-color: var(--gold);
+      color: var(--gold-light);
+      background: rgba(201,168,76,0.06);
+    }
+    @media (max-width: 700px) {
+      .video-grid { grid-template-columns: 1fr; }
+    }
+
     /* ─── DESIGN TOKENS ─── */
     :root {
       --gold:       #C9A84C;
@@ -1197,68 +1392,89 @@
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      gap: 10px;
+      gap: 12px;
       z-index: 950;
     }
     .float-btn {
-      width: 52px; height: 52px;
+      width: 54px; height: 54px;
       border-radius: 50%;
       display: grid; place-items: center;
       cursor: pointer;
       text-decoration: none;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06);
+      transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s ease;
       border: none;
       font-size: 1.35rem;
       position: relative;
     }
-    .float-btn:hover { transform: scale(1.12); box-shadow: 0 6px 24px rgba(0,0,0,0.5); }
-    .float-btn-messenger { background: #0084FF; color: #fff; }
-    .float-btn-whatsapp  { background: #25D366; color: #fff; }
-    .float-btn-phone     { background: var(--gold); color: var(--obsidian); }
+    .float-btn:hover {
+      transform: scale(1.14) translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.1);
+    }
+    .float-btn-messenger {
+      background: linear-gradient(145deg, #0099FF, #0056D6);
+      color: #fff;
+    }
+    .float-btn-whatsapp {
+      background: linear-gradient(145deg, #25D366, #128C4E);
+      color: #fff;
+    }
+    .float-btn-phone {
+      background: linear-gradient(145deg, var(--gold-light), var(--gold-dim));
+      color: var(--obsidian);
+    }
     /* Tooltip labels */
     .float-btn::before {
       content: attr(data-label);
       position: absolute;
-      right: 62px;
-      background: var(--card);
+      right: 64px;
+      background: rgba(10,10,11,0.92);
       border: 1px solid var(--border);
       color: var(--text-prime);
       font-family: var(--ff-body);
       font-size: 0.72rem;
       font-weight: 500;
       white-space: nowrap;
-      padding: 6px 12px;
+      padding: 7px 14px;
       border-radius: var(--radius-sm);
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.2s ease;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      transform: translateX(6px);
       letter-spacing: 0.04em;
+      backdrop-filter: blur(8px);
     }
-    .float-btn:hover::before { opacity: 1; }
+    .float-btn:hover::before {
+      opacity: 1;
+      transform: translateX(0);
+    }
     /* Toggle button */
     #float-toggle {
-      width: 52px; height: 52px;
+      width: 54px; height: 54px;
       border-radius: 50%;
       background: var(--card);
       border: 1.5px solid var(--border);
       display: grid; place-items: center;
       cursor: pointer;
       color: var(--gold);
-      font-size: 1.4rem;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+      font-size: 1.2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
       transition: var(--transition);
       z-index: 951;
     }
-    #float-toggle:hover { background: rgba(201,168,76,0.1); border-color: var(--gold); }
+    #float-toggle:hover {
+      background: rgba(201,168,76,0.12);
+      border-color: var(--gold);
+      box-shadow: 0 6px 24px rgba(201,168,76,0.2);
+    }
     .float-group {
-      display: flex; flex-direction: column; align-items: flex-end; gap: 10px;
+      display: flex; flex-direction: column; align-items: flex-end; gap: 12px;
       transition: opacity 0.3s ease, transform 0.3s ease;
     }
     .float-group.hidden {
       opacity: 0;
       pointer-events: none;
-      transform: translateY(12px);
+      transform: translateY(16px);
     }
 
     /* =============================================
@@ -1372,6 +1588,48 @@
 <body>
 
   <!-- =============================================
+       ANNOUNCEMENT BAR
+  ============================================= -->
+  <div id="announcement-bar" role="banner" aria-label="Site announcement">
+    <div class="announce-inner">
+
+      <!-- Scrolling ticker -->
+      <div class="announce-ticker" aria-hidden="true">
+        <div class="announce-track">
+          <!-- Set 1 -->
+          <span class="announce-item"><span class="announce-dot"></span>🔥 La Casa Di Victoria — Event Place For Sale in Llanera</span>
+          <span class="announce-item"><span class="announce-dot"></span>🌾 11 Hectares Rice Farm — Premium Agricultural Investment</span>
+          <span class="announce-item"><span class="announce-dot"></span>✅ Clean Titles · Verified Documents · Direct Seller</span>
+          <span class="announce-item"><span class="announce-dot"></span>📍 Llanera, Nueva Ecija — 2–3 hrs from Metro Manila</span>
+          <span class="announce-item"><span class="announce-dot"></span>💼 Land Banking · Event Venue · Agricultural Investment</span>
+          <!-- Set 2 (duplicate for infinite loop) -->
+          <span class="announce-item"><span class="announce-dot"></span>🔥 La Casa Di Victoria — Event Place For Sale in Llanera</span>
+          <span class="announce-item"><span class="announce-dot"></span>🌾 11 Hectares Rice Farm — Premium Agricultural Investment</span>
+          <span class="announce-item"><span class="announce-dot"></span>✅ Clean Titles · Verified Documents · Direct Seller</span>
+          <span class="announce-item"><span class="announce-dot"></span>📍 Llanera, Nueva Ecija — 2–3 hrs from Metro Manila</span>
+          <span class="announce-item"><span class="announce-dot"></span>💼 Land Banking · Event Venue · Agricultural Investment</span>
+        </div>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="announce-cta">
+        <a href="https://m.me/61581063641456" target="_blank" rel="noopener noreferrer"
+           class="announce-btn announce-btn-primary" aria-label="Inquire via Messenger">
+          💬 Inquire Now
+        </a>
+        <a href="tel:+639602310150"
+           class="announce-btn announce-btn-ghost" aria-label="Call broker Arce Morales">
+          📞 Call Broker
+        </a>
+      </div>
+
+      <!-- Close button -->
+      <button class="announce-close" id="announce-close" aria-label="Close announcement">✕</button>
+
+    </div>
+  </div>
+
+  <!-- =============================================
        NAVBAR
   ============================================= -->
   <header id="navbar" role="banner">
@@ -1390,6 +1648,7 @@
       <ul class="nav-links" role="list">
         <li><a href="#hero">Home</a></li>
         <li><a href="#properties">Properties</a></li>
+        <li><a href="#videos">Videos</a></li>
         <li><a href="#benefits">Investment Benefits</a></li>
         <li><a href="#why-llanera">About Llanera</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -1409,6 +1668,7 @@
   <nav class="nav-mobile" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
     <a href="#hero" class="mobile-link">Home</a>
     <a href="#properties" class="mobile-link">Properties</a>
+    <a href="#videos" class="mobile-link">Property Videos</a>
     <a href="#benefits" class="mobile-link">Investment Benefits</a>
     <a href="#why-llanera" class="mobile-link">About Llanera</a>
     <a href="#gallery" class="mobile-link">Gallery</a>
@@ -1951,6 +2211,72 @@
     </section>
 
     <!-- =============================================
+         YOUTUBE VIDEO SECTION
+    ============================================= -->
+    <section id="videos" class="section section--dark" aria-labelledby="videos-heading">
+      <div class="container">
+
+        <div class="text-center mb-2 reveal">
+          <span class="eyebrow">Property Showcase</span>
+          <span class="gold-line" aria-hidden="true"></span>
+          <h2 class="section-title" id="videos-heading">Watch the <em>Properties</em></h2>
+          <p class="section-sub">
+            See La Casa Di Victoria and the 11 Hectares Rice Farm up close — straight from the property itself.
+          </p>
+        </div>
+
+        <div class="video-grid reveal">
+
+          <!-- Video 1 — La Casa Di Victoria -->
+          <div class="video-card">
+            <div class="video-embed-wrap">
+              <iframe
+                src="https://www.youtube.com/embed/G-bk97M9fgE"
+                title="La Casa Di Victoria — Event Place For Sale in Llanera, Nueva Ecija"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            </div>
+            <div class="video-body">
+              <div class="video-type">Event Place</div>
+              <h3 class="video-title">La Casa Di Victoria</h3>
+              <p class="video-desc">Take a visual tour of this premium event venue property — perfect for weddings, corporate events, and family celebrations.</p>
+              <a href="#contact" class="btn-prop" style="margin-top:4px;display:inline-flex;">
+                Inquire About This Property <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Video 2 — 11 Hectares Rice Farm -->
+          <div class="video-card">
+            <div class="video-embed-wrap">
+              <iframe
+                src="https://www.youtube.com/embed/KcOtcMk2_Po"
+                title="11 Hectares Rice Farm — Premium Agricultural Investment in Llanera, Nueva Ecija"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            </div>
+            <div class="video-body">
+              <div class="video-type">Agricultural Land</div>
+              <h3 class="video-title">11 Hectares Rice Farm</h3>
+              <p class="video-desc">Walk the land with us — 11 productive hectares of irrigated rice farmland in the heart of Nueva Ecija's prime agricultural zone.</p>
+              <a href="#contact" class="btn-prop" style="margin-top:4px;display:inline-flex;">
+                Inquire About This Property <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =============================================
          FAQ SECTION
     ============================================= -->
     <section id="faq" class="section section--dark" aria-labelledby="faq-heading">
@@ -2047,7 +2373,7 @@
 
           <div class="cta-btns">
             <a
-              href="https://m.me/JaPeraltacom/"
+              href="https://m.me/61581063641456"
               class="btn btn-gold"
               target="_blank"
               rel="noopener noreferrer"
@@ -2056,7 +2382,7 @@
               <span>💬</span> Messenger Inquiry
             </a>
             <a
-              href="tel:+639519259949"
+              href="tel:+639602310150"
               class="btn btn-outline"
               aria-label="Call us now"
             >
@@ -2090,8 +2416,8 @@
               <div class="contact-icon" aria-hidden="true">📘</div>
               <div>
                 <div class="contact-label">Facebook / Messenger</div>
-                <a href="https://m.me/JaPeraltacom/" class="contact-value" target="_blank" rel="noopener noreferrer" aria-label="Message us on Facebook Messenger">
-                  m.me/JaPeraltacom
+                <a href="https://m.me/61581063641456" class="contact-value" target="_blank" rel="noopener noreferrer" aria-label="Message us on Facebook Messenger">
+                  m.me/61581063641456 (Broker Arce)
                 </a>
               </div>
             </div>
@@ -2100,8 +2426,8 @@
               <div class="contact-icon" aria-hidden="true">📞</div>
               <div>
                 <div class="contact-label">Phone / Viber</div>
-                <a href="tel:+639519259949" class="contact-value" aria-label="Call us at this number">
-                  0951 925 9949
+                <a href="tel:+639602310150" class="contact-value" aria-label="Call us at this number">
+                  0960 231 0150
                 </a>
               </div>
             </div>
@@ -2110,8 +2436,8 @@
               <div class="contact-icon" aria-hidden="true">💬</div>
               <div>
                 <div class="contact-label">WhatsApp</div>
-                <a href="https://wa.me/639519259949" class="contact-value" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
-                  0951 925 9949
+                <a href="https://wa.me/639602310150" class="contact-value" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+                  0960 231 0150
                 </a>
               </div>
             </div>
@@ -2200,8 +2526,8 @@
             Premium real estate investment opportunities in Llanera, Nueva Ecija. We connect serious investors with verified, high-potential properties — directly from the seller.
           </p>
           <div class="footer-socials" aria-label="Social media links">
-            <a href="https://m.me/JaPeraltacom/" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Facebook Messenger">💬</a>
-            <a href="https://wa.me/639519259949" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">📱</a>
+            <a href="https://m.me/61581063641456" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Facebook Messenger">💬</a>
+            <a href="https://wa.me/639602310150" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">📱</a>
           </div>
         </div>
 
@@ -2234,16 +2560,16 @@
           <div class="footer-col-title">Contact</div>
           <ul class="footer-links">
             <li>
-              <a href="https://m.me/JaPeraltacom/" target="_blank" rel="noopener noreferrer">
+              <a href="https://m.me/61581063641456" target="_blank" rel="noopener noreferrer">
                 📘 Facebook / Messenger
               </a>
             </li>
             <li>
-              <a href="tel:+639519259949">📞 0951 925 9949</a>
+              <a href="tel:+639602310150">📞 0960 231 0150</a>
             </li>
             <li>
-              <a href="https://wa.me/639519259949" target="_blank" rel="noopener noreferrer">
-                💬 WhatsApp: 0951 925 9949
+              <a href="https://wa.me/639602310150" target="_blank" rel="noopener noreferrer">
+                💬 WhatsApp: 0960 231 0150
               </a>
             </li>
             <li style="color:var(--text-muted);font-size:0.82rem;margin-top:4px;">
@@ -2285,7 +2611,7 @@
 
       <a
         class="float-btn float-btn-messenger"
-        href="https://m.me/JaPeraltacom/"
+        href="https://m.me/61581063641456"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Message us on Messenger"
@@ -2299,7 +2625,7 @@
 
       <a
         class="float-btn float-btn-whatsapp"
-        href="https://wa.me/639519259949?text=Hello!%20I%20am%20interested%20in%20your%20Llanera%20Prime%20Properties."
+        href="https://wa.me/639602310150?text=Hello!%20I%20saw%20your%20listing%20on%20Llanera%20Prime%20Properties%20and%20I%20am%20interested.%20Can%20we%20talk?"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat with us on WhatsApp"
@@ -2307,174 +2633,4 @@
       >
         <!-- WhatsApp icon SVG -->
         <svg width="22" height="22" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-          <path d="M12.004 2.003a9.997 9.997 0 00-8.591 15.114L2 22l4.982-1.387A9.997 9.997 0 1012.004 2.003zm0 18.25a8.246 8.246 0 01-4.204-1.153l-.302-.179-3.13.872.856-3.117-.197-.32A8.253 8.253 0 1112.004 20.25z"/>
-        </svg>
-      </a>
-
-      <a
-        class="float-btn float-btn-phone"
-        href="tel:+639519259949"
-        aria-label="Call us now"
-        data-label="Call: 0951 925 9949"
-      >
-        <!-- Phone icon SVG -->
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-          <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-        </svg>
-      </a>
-
-    </div>
-  </div>
-
-  <!-- Back to Top -->
-  <button id="back-top" aria-label="Back to top">↑</button>
-
-  <!-- =============================================
-       JAVASCRIPT — INTERACTIONS
-  ============================================= -->
-  <script>
-    // ─── Navbar scroll effect ───
-    const navbar = document.getElementById('navbar');
-    const heroBg = document.getElementById('hero-bg');
-
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 60) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-
-      // Back to top
-      const backTop = document.getElementById('back-top');
-      if (window.scrollY > 400) {
-        backTop.classList.add('show');
-      } else {
-        backTop.classList.remove('show');
-      }
-    }, { passive: true });
-
-    // ─── Hero image load animation ───
-    window.addEventListener('load', () => {
-      if (heroBg) heroBg.classList.add('loaded');
-    });
-
-    // ─── Mobile hamburger ───
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    hamburger.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.toggle('open');
-      hamburger.classList.toggle('open');
-      hamburger.setAttribute('aria-expanded', isOpen.toString());
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    });
-
-    // Close mobile menu on link click
-    document.querySelectorAll('.mobile-link').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        hamburger.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      });
-    });
-
-    // ─── Scroll reveal ───
-    const reveals = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-    reveals.forEach(el => revealObserver.observe(el));
-
-    // ─── FAQ accordion ───
-    document.querySelectorAll('.faq-q').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.closest('.faq-item');
-        const isOpen = item.classList.contains('open');
-
-        // Close all
-        document.querySelectorAll('.faq-item').forEach(i => {
-          i.classList.remove('open');
-          i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
-        });
-
-        // Toggle clicked
-        if (!isOpen) {
-          item.classList.add('open');
-          btn.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
-
-    // ─── Contact form ───
-    const form = document.getElementById('inquiry-form');
-    const formStatus = document.getElementById('form-status');
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('full-name').value.trim();
-      const phone = document.getElementById('phone-num').value.trim();
-      const property = document.getElementById('property-interest').value;
-
-      if (!name || !phone || !property) {
-        formStatus.textContent = '⚠️ Please fill in all required fields.';
-        formStatus.style.color = '#E07070';
-        return;
-      }
-
-      // Simulate send
-      const submitBtn = form.querySelector('button[type="submit"]');
-      submitBtn.textContent = '⏳ Sending…';
-      submitBtn.disabled = true;
-
-      setTimeout(() => {
-        formStatus.textContent = '✅ Thank you! Your inquiry has been received. We will contact you within 24 hours.';
-        formStatus.style.color = 'var(--gold-light)';
-        form.reset();
-        submitBtn.textContent = '📨 Send Inquiry';
-        submitBtn.disabled = false;
-      }, 1500);
-    });
-
-    // ─── Back to top ───
-    document.getElementById('back-top').addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // ─── Footer year ───
-    document.getElementById('footer-year').textContent = new Date().getFullYear();
-
-    // ─── Smooth scroll for anchor links ───
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', (e) => {
-        const target = document.querySelector(anchor.getAttribute('href'));
-        if (target) {
-          e.preventDefault();
-          const offset = 72; // navbar height
-          const top = target.getBoundingClientRect().top + window.scrollY - offset;
-          window.scrollTo({ top, behavior: 'smooth' });
-        }
-      });
-    });
-    // ─── Floating Buttonizer toggle ───
-    const floatToggle = document.getElementById('float-toggle');
-    const floatGroup  = document.getElementById('float-group');
-    let floatOpen = true;
-
-    floatToggle.addEventListener('click', () => {
-      floatOpen = !floatOpen;
-      floatGroup.classList.toggle('hidden', !floatOpen);
-      floatToggle.setAttribute('aria-expanded', floatOpen.toString());
-    });
-
-  </script>
-
-</body>
-</html>
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.75
